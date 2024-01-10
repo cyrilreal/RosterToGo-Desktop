@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pluszero.rostertogo.gui.OptionsViewController">
+   <bottom>
+        <Button fx:id="btnValider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#actionBtnValider" prefHeight="25.0" prefWidth="80.0" text="Valider" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="8.0" top="8.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <center>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="680.0" prefWidth="513.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+         <content>
+            <VBox spacing="8.0">
+               <children>
+                  <TitledPane animated="false" prefHeight="5.0" prefWidth="482.0" text="Général">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <CheckBox fx:id="cbxAutoCheckAndSign" mnemonicParsing="false" text="Vérification des changements et signature du planning automatiques" />
+                              <CheckBox fx:id="cbxUsePdfData" mnemonicParsing="false" selected="true" text="Utiliser les infos du planning PDF ( désactiver si plantage )">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="cbxShowAcceptedCrewRequest" layoutX="20.0" layoutY="45.0" mnemonicParsing="false" selected="true" text="Afficher la mention &quot;Accepted Crew Request&quot; dans la description">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <TitledPane animated="false" collapsible="false" prefHeight="200.0" prefWidth="200.0" text="Dossier de sauvegarde des fichiers ics et pdf">
+                                 <content>
+                                    <TextField fx:id="tfldFilesSavingLocation" onMouseClicked="#actionFilesSavingLocation" />
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" prefHeight="5.0" prefWidth="482.0" text="Heures créditées">
+                     <content>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <CheckBox fx:id="cbxAutoComputeHc" mnemonicParsing="false" selected="true" text="Activer le calcul automatique des Heures Créditées" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Google">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <CheckBox fx:id="cbxColorizeEvents" mnemonicParsing="false" prefHeight="17.0" selected="true" text="Utiliser la coloration par défaut des évènements">
+                                 <VBox.margin>
+                                    <Insets bottom="8.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <Label text="Calendriers personnalisés">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                              </Label>
+                                  <GridPane minHeight="-Infinity" vgap="4.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="80.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="386.0" minWidth="10.0" prefWidth="386.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                      <children>
+                                          <TextField id="tfldGoogleCalendarsFlight" fx:id="tfldGoogleCalendarsFlight" editable="false" onMouseClicked="#actionTargetedCalendars" GridPane.columnIndex="1" />
+                                          <TextField id="tfldGoogleCalendarsGround" fx:id="tfldGoogleCalendarsGround" editable="false" onMouseClicked="#actionTargetedCalendars" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField id="tfldGoogleCalendarsOff" fx:id="tfldGoogleCalendarsOff" editable="false" onMouseClicked="#actionTargetedCalendars" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField id="tfldGoogleCalendarsVacation" fx:id="tfldGoogleCalendarsVacation" editable="false" onMouseClicked="#actionTargetedCalendars" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="tfldGoogleCalendarsBlanc" onMouseClicked="#actionTargetedCalendars" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label prefHeight="17.0" prefWidth="80.0" text="Vols" />
+                                          <Label prefHeight="17.0" prefWidth="80.0" text="Activités sol" GridPane.rowIndex="1" />
+                                          <Label prefHeight="17.0" prefWidth="80.0" text="Jours OFF" GridPane.rowIndex="2" />
+                                          <Label prefHeight="17.0" prefWidth="80.0" text="Congés" GridPane.rowIndex="3" />
+                                    <Label text="Jours &quot;blancs&quot;" GridPane.rowIndex="4" />
+                                      </children>
+                                 <VBox.margin>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </VBox.margin>
+                                  </GridPane>
+                              <Label text="Suppression des évènements (en cas de doublons restants)">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labStatus" textAlignment="CENTER" />
+                              <GridPane minHeight="-Infinity" vgap="4.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="62.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="380.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="tfldDeleteEventCalendars" editable="false" onMouseClicked="#actionTargetedCalendars" GridPane.columnIndex="1" />
+                                    <Label text="Agendas" />
+                                    <Label text="Période du" GridPane.rowIndex="1" />
+                                    <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <DatePicker fx:id="dpkrDeleteEventsDateBegin" maxWidth="160.0" />
+                                          <Label text="au">
+                                             <HBox.margin>
+                                                <Insets left="8.0" right="8.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <DatePicker fx:id="dpkrDeleteEventsDateEnd" maxWidth="160.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" />
+                                 </padding>
+                              </GridPane>
+                              <FlowPane alignment="CENTER" columnHalignment="CENTER">
+                                 <children>
+                                    <Button fx:id="btnDeleteEvents" mnemonicParsing="false" onAction="#actionBtnDeleteEvents" text="Supprimer" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Réinitialisation">
+                     <content>
+                        <VBox spacing="8.0">
+                           <children>
+                              <Button fx:id="btnDeleteStoredCredential" mnemonicParsing="false" onAction="#actionBtnDeleteStoredCredential" prefHeight="25.0" prefWidth="460.0" text="Supprimer le certificat d'accès à Google ">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnDeletePreferences" mnemonicParsing="false" onAction="#actionBtnDeletePreferences" prefHeight="25.0" prefWidth="460.0" text="Supprimer les préférences et les données internes" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets left="8.0" right="8.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

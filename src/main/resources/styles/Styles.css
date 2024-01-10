@@ -1,0 +1,15 @@
+.button {
+    -fx-font-weight: bold;
+}
+
+.combo-box>.list-cell {
+    -fx-alignment: center;
+}
+
+.status-background{
+    -fx-background-color: darkgreen ;
+}
+
+.green-progress-bar  {
+    -fx-accent: green;
+}

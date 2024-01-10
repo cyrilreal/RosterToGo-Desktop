@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pluszero.rostertogo.gui.ActivityPayViewController">
+    <bottom>
+        <Button fx:id="btnClose" mnemonicParsing="false" onAction="#actionBtnClose" prefHeight="25.0" prefWidth="80.0" text="Fermer" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="8.0" />
+            </BorderPane.margin>
+        </Button>
+    </bottom>
+    <top>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <ComboBox fx:id="cmbxFunction" onAction="#actionFunctionChanged" prefWidth="80.0">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin></ComboBox>
+                <ComboBox fx:id="cmbxCategory" onAction="#actionCategoryChanged" prefWidth="120.0">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </ComboBox>
+            </children>
+            <padding>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </padding>
+        </HBox>
+    </top>
+   <center>
+      <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Option A (ancien système de rému.)">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="544.0">
+                     <children>
+                            <VBox alignment="TOP_CENTER" prefHeight="496.0" prefWidth="784.0">
+                                <children>
+                                    <HBox alignment="CENTER">
+                                        <children>
+                                            <ComboBox fx:id="cmbxYears" onAction="#actionYearChanged" prefWidth="104.0">
+                                                <HBox.margin>
+                                                    <Insets right="24.0" />
+                                                </HBox.margin>
+                                            </ComboBox>
+                                            <Label text="Fixe :">
+                                       <HBox.margin>
+                                          <Insets right="4.0" />
+                                       </HBox.margin></Label>
+                                            <TextField fx:id="tfFixedPayTO" alignment="CENTER_RIGHT" editable="false" prefWidth="64.0">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </TextField>
+                                            <Label text="PV :">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="tfPvTO" alignment="CENTER_RIGHT" editable="false" prefWidth="56.0">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </TextField>
+                                            <Label layoutX="129.0" layoutY="18.0" text="PV&gt;75hc :">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="tfPvSup75hcTO" alignment="CENTER_RIGHT" editable="false" prefWidth="56.0">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </TextField>
+                                            <Label text="SMMG (mois plein) :">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="tfMinimumGuaranteedPayTO" alignment="CENTER_RIGHT" editable="false" layoutX="138.0" layoutY="14.0" prefWidth="72.0">
+                                                <HBox.margin>
+                                                    <Insets left="4.0" />
+                                                </HBox.margin>
+                                            </TextField>
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                        </padding>
+                                    </HBox>
+                                    <TextArea fx:id="taContent" editable="false" onMouseClicked="#actionGenerateMonthsTable" prefHeight="472.0">
+                                        <font>
+                                            <Font name="Consolas" size="12.0" />
+                                        </font>
+                                    </TextArea>
+                                </children>
+                            </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Option B (nouveau système de rému.)">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="544.0" prefWidth="704.0">
+                     <children>
+                            <VBox alignment="TOP_CENTER" prefHeight="496.0" prefWidth="784.0">
+                                <children>
+                                    <HBox alignment="CENTER">
+                                        <children>
+                                            <ComboBox fx:id="cmbxEchelon" onAction="#actionEchelonChanged" prefWidth="104.0">
+                                                <HBox.margin>
+                                                    <Insets right="8.0" />
+                                                </HBox.margin>
+                                            </ComboBox>
+                                            <ComboBox fx:id="cmbxClass" onAction="#actionClassChanged" prefWidth="120.0">
+                                                <HBox.margin>
+                                                    <Insets right="8.0" />
+                                                </HBox.margin>
+                                            </ComboBox>
+                                              <CheckBox fx:id="chbxAtpl" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionAtplChanged" text="ATPL" textAlignment="CENTER">
+                                                  <HBox.margin>
+                                                      <Insets right="24.0" />
+                                                  </HBox.margin>
+                                              </CheckBox>
+                                            <Label text="Fixe :">
+                                       <HBox.margin>
+                                          <Insets right="4.0" />
+                                       </HBox.margin></Label>
+                                            <TextField fx:id="tfFixedPayAF" alignment="CENTER_RIGHT" editable="false" prefWidth="64.0">
+                                                <HBox.margin>
+                                                    <Insets right="8.0" />
+                                                </HBox.margin>
+                                            </TextField>
+                                            <Label text="PVEI :">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="tfPveiAF" alignment="CENTER_RIGHT" editable="false" prefWidth="56.0">
+                                                <HBox.margin>
+                                                    <Insets right="8.0" />
+                                                </HBox.margin>
+                                            </TextField>
+                                            <Label text="SMMG (mois plein) :">
+                                                <HBox.margin>
+                                                    <Insets right="4.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                            <TextField fx:id="tfMinimumGuaranteedPayAF" alignment="CENTER_RIGHT" editable="false" prefWidth="72.0">
+                                                <HBox.margin>
+                                                    <Insets />
+                                                </HBox.margin>
+                                            </TextField>
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="4.0" top="4.0" />
+                                        </padding>
+                                    </HBox>
+                                    <TextArea fx:id="taContentAF" editable="false" prefHeight="472.0" VBox.vgrow="ALWAYS">
+                                        <font>
+                                            <Font name="Consolas" size="12.0" />
+                                        </font>
+                                    </TextArea>
+                                </children>
+                            </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets left="8.0" right="8.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+</BorderPane>

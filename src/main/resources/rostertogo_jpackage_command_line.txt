@@ -1,0 +1,1 @@
+jpackage --name RosterToGo --app-version 1.1.2023.0911 --description "build 20230911" --vendor "Cyril Real" --win-shortcut  --win-dir-chooser  --icon "c:\Users\Cyril\Pictures\RosterToGo\rostertogo.ico" --type "msi" --input "c:\Users\Cyril\Documents\Programmation\NetBeansProjects\RosterToGo\target" --main-jar rostertogo.jar

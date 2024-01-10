@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pluszero.rostertogo.gui.LoginViewController">
+    <center>
+        <WebView fx:id="webView" prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </BorderPane.margin>
+        </WebView>
+    </center>
+    <left>
+        <VBox alignment="CENTER" prefHeight="592.0" prefWidth="224.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="${'Insérez dans les champs ci dessus vos identifiants Okta. Ils seront sauvegardés et il suffira de passer la souris dessus pour les copier, puis les coller dans les champs de la page de connexion.\n\nLe fait de ne pas pouvoir sauvegarder directement les éléments de la page de connexion comme dans un navigateur classique est dû à une limitation du composant &quot;WebView&quot; utilisé...'}" textAlignment="JUSTIFY" wrapText="true">
+                    <font>
+                        <Font name="System Italic" size="12.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="8.0" />
+                    </VBox.margin>
+                </Label>
+                <Label text="Nom d'utilisateur :">
+                    <VBox.margin>
+                        <Insets bottom="4.0" />
+                    </VBox.margin>
+                </Label>
+                <TextField fx:id="tfLogin" onMouseEntered="#copyLogin" prefWidth="232.0">
+                    <VBox.margin>
+                        <Insets bottom="8.0" />
+                    </VBox.margin>
+                </TextField>
+                <Button fx:id="btnCopyLogin" mnemonicParsing="false" onAction="#copyLogin" prefWidth="232.0" text="Copier le nom d'utilisateur">
+                    <VBox.margin>
+                        <Insets bottom="16.0" />
+                    </VBox.margin>
+                </Button>
+                <Label text="Mot de passe :">
+                    <VBox.margin>
+                        <Insets bottom="4.0" />
+                    </VBox.margin>
+                </Label>
+                <PasswordField fx:id="pfPassword" onMouseEntered="#copyPassword" prefWidth="216.0">
+                    <VBox.margin>
+                        <Insets bottom="8.0" />
+                    </VBox.margin>
+                </PasswordField>
+                <Button fx:id="btnCopyPassword" mnemonicParsing="false" onAction="#copyPassword" prefWidth="232.0" text="Copier le mot de passe">
+                    <VBox.margin>
+                        <Insets bottom="8.0" />
+                    </VBox.margin>
+                </Button>
+                <CheckBox fx:id="cbxShowPassword" mnemonicParsing="false" onAction="#toggleMask" prefWidth="232.0" text="Montrer le mot de passe" />
+            </children>
+            <padding>
+                <Insets left="8.0" />
+            </padding>
+        </VBox>
+    </left>
+</BorderPane>
